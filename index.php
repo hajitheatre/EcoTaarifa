@@ -41,6 +41,124 @@ if (isset($_SESSION['user_id'])) {
   <link rel="apple-touch-icon" sizes="167x167" href="assets/apple-touch-icon-180.png">
 </head>
 <body>
+  <!-- Full-screen Preloader Overlay -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="logo-container">
+        <img src="assets/logo.svg" alt="EcoTaarifa Logo" class="preloader-logo">
+      </div>
+      <div class="spinner"></div>
+      <p class="preloader-text">Loading EcoTaarifa...</p>
+    </div>
+  </div>
+
+  <style>
+    /* Preloader Styles */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #309365;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000; /* High z-index to stay on top */
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .preloader-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 20px;
+    }
+
+    .preloader-logo {
+      width: 100px;
+      height: auto;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .preloader-text {
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      border-top-color: #ffffff;
+      animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+
+    .preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* Prevent scrolling while loading */
+    body.loading-active {
+      overflow: hidden;
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 480px) {
+      .preloader-logo {
+        width: 80px;
+      }
+      .preloader-text {
+        font-size: 1rem;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+
+  <script>
+    // Immediately prevent scrolling
+    document.body.classList.add('loading-active');
+
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        // Add a small delay for smooth transition even on fast loads
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+          document.body.classList.remove('loading-active');
+          
+          // Remove from DOM after fade animation
+          setTimeout(() => {
+            if (preloader.parentNode) {
+              preloader.parentNode.removeChild(preloader);
+            }
+          }, 600); // Matches the 0.6s transition
+        }, 300);
+      }
+    });
+  </script>
 
   <!-- ===================== AUTH PAGE ===================== -->
   <div id="auth-page" class="page auth-page">
