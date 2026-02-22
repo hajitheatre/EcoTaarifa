@@ -1,0 +1,21 @@
+# ========================
+# EcoTaarifa — .gitignore
+# ========================
+
+# Database credentials (NEVER commit these)
+includes/db_config.php
+
+# PHP error log files
+*.log
+error_log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# XAMPP / server-specific
+/logs/
