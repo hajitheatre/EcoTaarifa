@@ -62,9 +62,12 @@ if (isset($_SESSION['user_id'])) {
       justify-content: center;
       align-items: center;
       z-index: 10000; /* High z-index to stay on top */
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       opacity: 1;
       visibility: visible;
+      transform: scale(1);
     }
 
     .preloader-content {
@@ -103,6 +106,7 @@ if (isset($_SESSION['user_id'])) {
     .preloader.fade-out {
       opacity: 0;
       visibility: hidden;
+      transform: scale(1.05); /* Professional subtle zoom-out */
     }
 
     /* Prevent scrolling while loading */
@@ -150,7 +154,7 @@ if (isset($_SESSION['user_id'])) {
             if (preloader.parentNode) {
               preloader.parentNode.removeChild(preloader);
             }
-          }, 600); // Matches the 0.6s transition
+          }, 800); // Matches the 0.8s transition
         }, 300);
       }
     });
