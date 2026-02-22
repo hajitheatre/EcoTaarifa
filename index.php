@@ -126,6 +126,17 @@ if (isset($_SESSION['user_id'])) {
     // Immediately prevent scrolling
     document.body.classList.add('loading-active');
 
+    // Handle custom loader text based on URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const preloaderText = document.querySelector('.preloader-text');
+    if (preloaderText) {
+      if (urlParams.has('logout')) {
+        preloaderText.textContent = 'Logging you out...';
+      } else if (urlParams.has('timeout')) {
+        preloaderText.textContent = 'Session expired, logging out...';
+      }
+    }
+
     window.addEventListener('load', function() {
       const preloader = document.getElementById('preloader');
       if (preloader) {

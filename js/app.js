@@ -714,7 +714,7 @@ function logout() {
     "Are you sure you want to logout?",
     "confirm",
     "Logout",
-    performLogout,
+    () => performLogout("logout"),
     false,
     "Cancel",
   );
