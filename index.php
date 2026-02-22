@@ -44,9 +44,6 @@ if (isset($_SESSION['user_id'])) {
   <!-- Full-screen Preloader Overlay -->
   <div id="preloader" class="preloader">
     <div class="preloader-content">
-      <div class="logo-container">
-        <img src="assets/logo.svg" alt="EcoTaarifa Logo" class="preloader-logo">
-      </div>
       <div class="spinner"></div>
       <p class="preloader-text">Loading EcoTaarifa...</p>
     </div>
@@ -79,11 +76,6 @@ if (isset($_SESSION['user_id'])) {
       padding: 20px;
     }
 
-    .preloader-logo {
-      width: 100px;
-      height: auto;
-      animation: pulse 2s infinite ease-in-out;
-    }
 
     .preloader-text {
       color: #ffffff;
@@ -107,10 +99,6 @@ if (isset($_SESSION['user_id'])) {
       to { transform: rotate(360deg); }
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-    }
 
     .preloader.fade-out {
       opacity: 0;
@@ -124,9 +112,6 @@ if (isset($_SESSION['user_id'])) {
 
     /* Mobile Responsive Adjustments */
     @media (max-width: 480px) {
-      .preloader-logo {
-        width: 80px;
-      }
       .preloader-text {
         font-size: 1rem;
       }
