@@ -242,9 +242,11 @@ function applyProfileState(container) {
   const installBtn = container.querySelector("#pwa-install-btn");
   if (installBtn) {
     if (deferredPrompt) {
+      console.log("PWA: Showing install button");
       installBtn.classList.remove("hidden");
       installBtn.onclick = installPWA;
     } else {
+      console.log("PWA: No deferredPrompt, hiding install button");
       installBtn.classList.add("hidden");
     }
   }
@@ -2124,6 +2126,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
   // Capture for custom UI and prevent default
   e.preventDefault();
   deferredPrompt = e;
+  console.log("PWA: beforeinstallprompt captured");
   refreshCurrentView();
 });
 
