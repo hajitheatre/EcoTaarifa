@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id'])) {
   <!-- Lottie Player -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <!-- PWA & Mobile Optimization -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
   <meta name="theme-color" content="#10b981">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">

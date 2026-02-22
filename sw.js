@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ecotaarifa-v27';
+const CACHE_NAME = 'ecotaarifa-v28';
 const ASSETS_TO_CACHE = [
   './',
   'index.php',
